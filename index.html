@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            #intro-background {
+                background-color: brown;
+            }
+            .red-text {
+                color: green;
+            }
+            .thick-green-border {
+                border-color: black;
+                border-width: 5px;
+                border-style: solid;
+                border-radius: 50%;
+            }
+            .green-background {
+                background-color: green;
+            }
+            .silver-background {
+                background-color: silver;
+            }
+            p {
+                max-width: 1200px;
+                word-wrap: break-word;
+            }
+            li {
+                max-width: 1200px;
+                word-wrap: break-word;
+            }
+            em {
+                max-width: 1200px;
+                word-wrap: break-word;
+            }
+        </style>
         <title>TellDan</title>
     </head>
     <body>
-        <h1>Daniel Tellier</h1>
-        <h2>Intro</h2>
-        <p>I enjoy studying machine learning.</p>
-        <h2>Career Interests</h2>
-        <ul>
-            <li>Machine Learning</li>
-            <li>C/C++</li>
-        </ul>
-        <h2>Hobbies</h2>
-        <img src="./images/dawn_wall.jpg" alt="Dawn Wall" width="600" height="300">
-        <ul>
-            <li>Climbing</li>
-            <li>Running</li>
-        </ul>
+        <h1 class="red-text">Daniel Tellier</h1>
+        <img class="thick-green-border" src="./images/classy-climb.jpg" alt="Climb" width="400" height="600">
+        <div id="intro-background">
+            <h2>Intro</h2>
+            <p>I enjoy studying machine learning.</p>
+        </div>
+        <div class="green-background">
+            <h2>Career Interests</h2>
+            <ul>
+                <li>Machine Learning</li>
+                <li>C/C++</li>
+            </ul>
+        </div>
+        <div class="silver-background">
+            <h2>Hobbies</h2>
+            <img src="./images/dawn_wall.jpg" alt="Dawn Wall" width="600" height="300">
+            <ul>
+                <li>Climbing</li>
+                <li>Running</li>
+            </ul>
+        </div>
     </body>
 </html>
