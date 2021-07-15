@@ -1,12 +1,12 @@
 # Table of Contents
-- [KNN](#k-nearest-neighbor-(knn)-topics)
+- [KNN](#k-nearest-neighbor-topics)
 - [Linear](#linear-topics)
 - [Naive Bayes](#naive-bayes-classifiers)
 - [Trees](#trees)
 - [Ensembles](#ensembles-of-decision-trees)
 - [Gradient Boosted Regression Trees](#gradient-boosted-regression-trees)
 
-# K-Nearest Neighbor (KNN) Topics
+# K-Nearest Neighbor Topics
 Split data into a training set and a validation set.
 The following example does 25% validation and 75% training.
 ```python
