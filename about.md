@@ -1,6 +1,7 @@
-<style>
+<head>
     <link rel='stylesheet' href='./assets/css/style.css' type='text/css' media='screen' charset='utf-8'>
-</style>
+</head>
+
 # Daniel Tellier
 
 <img src="./images/classy-climb.jpg" alt="Climb" width="400" height="600">

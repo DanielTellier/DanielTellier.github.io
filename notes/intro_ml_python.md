@@ -1,6 +1,7 @@
-<style>
+<head>
     <link rel='stylesheet' href='../assets/css/style.css' type='text/css' media='screen' charset='utf-8'>
-</style>
+</head>
+
 # K-Nearest Neighbor (KNN) Topics
 Split data into a training set and a validation set.
 The following example does 25% validation and 75% training.
