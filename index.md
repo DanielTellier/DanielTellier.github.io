@@ -1,7 +1,3 @@
-<head>
-    <link rel='stylesheet' href='./css/style.scss' type='text/css' media='screen' charset='utf-8'>
-</head>
-
 # Daniel Tellier
 
 - [About](./about.md)
