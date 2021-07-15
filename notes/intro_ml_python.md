@@ -1,6 +1,4 @@
-# Introduction to Machine Learning with Python
-
-## K-Nearest Neighbor (KNN) Topics
+# K-Nearest Neighbor (KNN) Topics
 Split data into a training set and a validation set.
 The following example does 25% validation and 75% training.
 ```python
@@ -145,7 +143,7 @@ Note duplicating the same data points or collecting very similar data will not h
 Note when n_neighbors=1 the knn only considers the closest training data point to the point we want
 to make a prediction for.
 
-## Linear Topics
+# Linear Topics
 For Linear regression if you have more features than training data
 any target can be perfectly modeled on the training set as a linear function.
 
@@ -328,13 +326,13 @@ NOTE: If your data consists of hundreds of thousands or millions of samples
 maybe investigate solver='sag' in LogisticRegression and Ridge which can be faster
 than default on large datasets.
 
-## Naive Bayes Classifiers
+# Naive Bayes Classifiers
 Naive Bayes Classifiers -> Similar to linear models but faster in training but tend to provide less optimal
 generalization than classifiers like LogisticRegression or LinearSVC. Are often used on very large
 datasets where training even a linear model might take too long. Checkout GaussianNB, BernoulliNB, and
 MultinomialNB in sckitlearn.
 
-## Trees
+# Trees
 Decision Trees -> learn a hierarchy of if/else questions, leading to a decision.
 Can easily overfit data. To prevent this potential overfitting can
 stop creation of tree early called pruning or building tree and then
@@ -370,10 +368,10 @@ Accuracy on test set:0.951
 
 <img src="../images/feat_import.png" alt="Feature Importance" width="600" height="300">
 
-## Ensembles
-Ensembles of Decision Trees
+# Ensembles of Decision Trees
 
-Random Forests -> a collection of decision trees to help reduce overfitting. And each tree is slightly different than the others.
+## Random Forests:
+A collection of decision trees to help reduce overfitting. And each tree is slightly different than the others.
 We average the results of all the varying decision trees that have a high chance of overfitting.
 
 To build a random forest you set the number of estimators and a bootstrap sample of our data is taken ergo
@@ -384,3 +382,25 @@ number of features in the dataset ergo each split considers all features than no
 in the feature selection. A low max_features means that the trees will be quite different and each tree
 might need to be very deep in order to fit the data well. For prediction the probs predicted by all the trees
 are averaged and the class with the highest prob is predicted.
+
+The added randomness of the forest allows it to capture a broader idea of the data compared to a single tree.
+We can see from the below images that the forest captures a more reliable idea of each
+features importance.
+
+### Random Forest Feature Importance
+<img src="../images/feat_import_forest.png" alt="Feature Importance" width="600" height="300">
+
+### Decision Tree Feature Importance
+<img src="../images/feat_import_tree.png" alt="Feature Importance" width="600" height="300">
+
+### Keypoints an Random Forests
+- They can be parallelized on multiple CPUs.
+- Require more memory and slower to train and perdict than linear models.
+
+# Gradient boosted regression trees
+- Combines multiple decision trees
+- Each tree tries to correct the mistakes of the previous
+- Do not use randomizatoin and focus on using pre-pruning and have very shallow trees ergo depth one to five
+- Learning-rate is used to dictate how strongly each tree tries to correct mistakes of the previous
+- A high learning-rate means the next tree makes stronger corrections leading to a more complex model
+- Adding more estimators also adds to the model complexity
