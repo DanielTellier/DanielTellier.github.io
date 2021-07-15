@@ -1,6 +1,6 @@
 # Daniel Tellier
 
-<img class="thick-green-border" src="./images/classy-climb.jpg" alt="Climb" width="400" height="600">
+<img src="./images/classy-climb.jpg" alt="Climb" width="400" height="600">
 
 ## Intro
 I enjoy studying machine learning.
