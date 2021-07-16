@@ -1,4 +1,4 @@
-<img style="border-radius: 50%; text-align: center;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300">
+<img style="border-radius: 50%; display: block; margin-left: auto; margin-right: auto; width: 50%;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300">
 <h1 style="text-align: center;">Daniel Tellier</h1>
 
 # Table of Contents
