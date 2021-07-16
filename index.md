@@ -1,7 +1,33 @@
-<table style="border-collapse: collapse; border: none;">
+<style>
+.border-none {
+    border-collapse: collapse;
+    border: none;
+}
+
+.border-none td {
+    border: 1px solid black;
+}
+
+.border-none tr:first-child td {
+    border-top: none;
+}
+
+.border-none tr:last-child td {
+    border-bottom: none;
+}
+
+.border-none tr td:first-child {
+    border-left: none;
+}
+
+.border-none tr td:last-child {
+    border-right: none;
+}
+</style>
+<table class="border-none">
 <tr>
-<th><img style="border-radius: 50%;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300"></th>
-<th><h1>Daniel Tellier</h1></th>
+<td><img style="border-radius: 50%;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300"></td>
+<td><h1>Daniel Tellier</h1></td>
 </tr>
 </table>
 
