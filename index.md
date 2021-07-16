@@ -1,5 +1,5 @@
 <img style="border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300">
-<h1 style="text-align: center;">Daniel Tellier</h1>
+<h1 style="font-size: 50px; text-align: center;">Daniel Tellier</h1>
 
 # Table of Contents
 - [Info](#info)
