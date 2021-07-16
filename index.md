@@ -1,4 +1,4 @@
-<table>
+<table style="border: none;">
 <tr>
 <th><img style="border-radius: 50%;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300"></th>
 <th><h1>Daniel Tellier</h1></th>
