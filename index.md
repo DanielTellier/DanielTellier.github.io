@@ -1,22 +1,16 @@
-<img style="border-radius: 50%; display: block; margin-left: auto; margin-right: auto;" src="./images/classy-climb.jpg" alt="Climb" width="200" height="300">
 <h1 style="font-size: 50px; text-align: center;">Daniel Tellier</h1>
-
-# Table of Contents
-- [Info](#info)
-- [Machine Learning Notes](#machine-learning)
-- [Statistics Notes](#statistics)
-- [Investing Notes](#investing)
 
 # Info
 - [About](./about.md)
 - [Resume](./docs/daniel_tellier.pdf)
 
-# Notes
-## Machine Learning
-- [Introduction to Machine Learning with Python](./notes/intro_ml_python.md)
+# Table of Contents
+- [Productivity](#productivity)
+- [Vim](#vim)
 
-## Statistics
-- [Statitics by Robert & John Witte](./notes/statistics_witte.md)
+#Blogs
+## Productivity
+- [Learning Software Engineering by Doing](./blogs/prob_solve_vim.md)
 
-## Investing
-- [Investing All-In-One for Dummies](./notes/investing_for_dummies.md)
+## Vim
+- [Custom Multiline Search in Vim](./blogs/custom_ms_vim.md)
