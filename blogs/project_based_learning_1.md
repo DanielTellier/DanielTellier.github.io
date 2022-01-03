@@ -23,7 +23,7 @@
 - Stick to learning the basics of one language really well.
 - Don't stay in this area for too long.
 - Search for projects you can contribute to once you feel slightly confident.
-
+<br>
 ### Confident enough to contribute
 - Join a project where there are coders better than you.
     - Join a project through your school.
