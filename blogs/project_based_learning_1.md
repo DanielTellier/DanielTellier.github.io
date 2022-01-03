@@ -12,6 +12,7 @@
 - Learning a programming language or API without a project in mind.
 
 ## PBL Approach
+
 ### Just starting to Code
 - Solve coding problems on sites such as (LeetCode, Codeforces, ...).
 - Coding problem sites provide solutions where you can get direct feed back.
@@ -22,6 +23,7 @@
 - Stick to learning the basics of one language really well.
 - Don't stay in this area for too long.
 - Search for projects you can contribute to once you feel slightly confident.
+
 ### Confident enough to contribute
 - Join a project where there are coders better than you.
     - Join a project through your school.
