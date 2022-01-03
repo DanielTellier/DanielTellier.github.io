@@ -1,9 +1,12 @@
-# Intro
-I enjoy studying machine learning.
+# Blog Objective
+Share what I learn in a concise manor.
 
-# Career Interests
+# Notes Objective
+Reference material for myself and others.
+
+# Areas of Interest
+- Embedded Systems
 - Machine Learning
-- C/C++
 
 # Hobbies
 - Climbing
