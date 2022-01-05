@@ -7,18 +7,20 @@ this tool only searches single lines.
 
 ## Solution
 ### Vim tree structure
-~/.vim \
-├── after \
-│   └── ftplugin \
-│       ├── cpp.vim \
-│       ├── cu.vim \
-│       └── c.vim \
-├── autoload \
-│   └── ft \
-│       └── calter.vim \
-├── sessions \
-│   └── mys.vim \
-└── vimrc \
+```
+~/.vim
+├── after
+│   └── ftplugin
+│       ├── cpp.vim
+│       ├── cu.vim
+│       └── c.vim
+├── autoload
+│   └── ft
+│       └── calter.vim
+├── sessions
+│   └── mys.vim
+└── vimrc
+```
 
 ### Below code in: calter.vim
 ```vim
