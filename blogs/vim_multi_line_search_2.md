@@ -109,7 +109,7 @@ let _ = bufload(fpath)
 ```
 Grabs the file path and then loads the buffer if it is not already loaded. \
 Note we do not care about what bufload returns. We need to load each \
-buffer locally to the function so that we can parse the files. \
+buffer locally to the function so that we can parse the files.
 
 ```vim
 let lineNum = qfl.lnum
