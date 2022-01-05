@@ -1,12 +1,20 @@
 <h1 style="font-size: 50px; text-align: center;">Daniel Tellier</h1>
 
-# Info
-- [About](./about.md)
+# About
+## Links
 - [Resume](./docs/daniel_tellier.pdf)
-
-# Links
 - [GitHub](https://github.com/DanielTellier)
 - [LinkedIn](https://www.linkedin.com/in/daniel-tellier-210ab3a4/)
+
+## Areas of Interest
+- Embedded Systems
+- Machine Learning
+
+## Blog Section Objective
+Share what I learn in a concise manor.
+
+## Note Section Objective
+Reference material for myself and others.
 
 # Table of Contents
 - [Productivity](#productivity)
