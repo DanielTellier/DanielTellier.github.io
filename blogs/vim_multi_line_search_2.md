@@ -1,8 +1,8 @@
 # Blog 2: Custom Multiline Search in Vim
 
 ## Objective
-Figure out how to multiline search a code base in a fast manor
-and avoid using vim tags. In the past have been using `grep` but
+Figure out how to multiline search a code base in a fast manor \
+and avoid using vim tags. In the past have been using `grep` but \
 this tool only searches single lines.
 
 ## Solution
