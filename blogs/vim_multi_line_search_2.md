@@ -7,18 +7,18 @@ this tool only searches single lines.
 
 ## Solution
 ### Vim tree structure
-~/.vim
-├── after
-│   └── ftplugin
-│       ├── cpp.vim
-│       ├── cu.vim
-│       └── c.vim
-├── autoload
-│   └── ft
-│       └── calter.vim
-├── sessions
-│   └── mys.vim
-└── vimrc
+~/.vim \
+├── after \
+│   └── ftplugin \
+│       ├── cpp.vim \
+│       ├── cu.vim \
+│       └── c.vim \
+├── autoload \
+│   └── ft \
+│       └── calter.vim \
+├── sessions \
+│   └── mys.vim \
+└── vimrc \
 
 ### Below code in: calter.vim
 ```vim
@@ -70,15 +70,15 @@ runtime $RTP/after/ftplugin/c.vim
 
 ## Explanation
 ### Important Details
-- calter.vim is in the autoload folder because it should only load when
+- calter.vim is in the autoload folder because it should only load when \
 the function is called.
-- If calter.vim was placed in the c.vim file you would get an error
-since the function would load when another c/cpp/cu file opens from
+- If calter.vim was placed in the c.vim file you would get an error \
+since the function would load when another c/cpp/cu file opens from \
 the function to find a defintion.
-- The command defined in c.vim `Cdef` can only be called when you are in
-a c/cpp/cu file. If you wanted any file you would place this command
+- The command defined in c.vim `Cdef` can only be called when you are in \
+a c/cpp/cu file. If you wanted any file you would place this command \
 in your vimrc file.
-- The command in c.vim uses the path to the calter.vim file from autoload ergo:
+- The command in c.vim uses the path to the calter.vim file from autoload ergo: \
     - ft#calter#Cdef\_
 
 ### Run Command in c.vim
@@ -90,7 +90,7 @@ in your vimrc file.
 exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
-Fills the quickfixlist with the files that contain
+Fills the quickfixlist with the files that contain \
 the function name.
 
 ```vim
@@ -103,11 +103,11 @@ Iterates over each item in the quickfixlist as a dictionary.
 
 ```vim
 let fpath = bufname(qfl.bufnr)
-let \_ = bufload(fpath)
+let _ = bufload(fpath)
 ```
-Grabs the file path and then loads the buffer if it is not already loaded.
-Note we do not care about what bufload returns. We need to load each
-buffer locally to the function so that we can parse the files.
+Grabs the file path and then loads the buffer if it is not already loaded. \
+Note we do not care about what bufload returns. We need to load each \
+buffer locally to the function so that we can parse the files. \
 
 ```vim
 let lineNum = qfl.lnum
@@ -119,10 +119,10 @@ while matches == -1
     let matches = match(lineStr, '[/{;]')
 endwhile
 ```
-Grabs the line starting at the function name in the coressponding buffer
-which is done by `getbufline`. Next we use regex to see if this line
-contains: '/'=comment, '{'=function definition, ';'=function call.
-Finally we repeat the above steps till we find one of the three above symbols
+Grabs the line starting at the function name in the coressponding buffer \
+which is done by `getbufline`. Next we use regex to see if this line \
+contains: '/'=comment, '{'=function definition, ';'=function call. \
+Finally we repeat the above steps till we find one of the three above symbols \
 in a given line from each buffer.
 
 ```vim
@@ -132,13 +132,13 @@ if match(lineStr, '{') != -1
     return
 endif
 ```
-If the line in the buffer contains a '{' we have found a function definition
-and we open this buffer in a new tab at the specific line number (qfl.lnum)
-of the function name. And if we have not found a '{' we go to the next
+If the line in the buffer contains a '{' we have found a function definition \
+and we open this buffer in a new tab at the specific line number (qfl.lnum) \
+of the function name. And if we have not found a '{' we go to the next \
 buffer in the quickfixlist. And that's all folks!
 
 ## Fun command
-If working on a server you can use :mksession \<file.vim\>
+If working on a server you can use :mksession \<file.vim\> \
 to save all the tabs and settings you have.
 
 ## Vim Keyboard Cheat Sheet
