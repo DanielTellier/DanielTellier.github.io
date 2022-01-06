@@ -132,7 +132,7 @@ endwhile
 ```
 First grabs the last line and then the line starting at the function name in \
 the coressponding buffer which is done by `getbufline`. Next we use regex to \
-see if this line contains: '/'=comment, '{'=function definition, or 
+see if this line contains: '/'=comment, '{'=function definition, or \
 ';'=function call. Finally we repeat the above steps till we find one of the \
 three above symbols in a given line from each buffer. Or if the line is the \
 end of the file we break from the while loop.
