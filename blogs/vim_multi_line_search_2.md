@@ -1,9 +1,9 @@
 # Blog 2: Custom Multiline Search in Vim
 
 ## Objective
-Figure out how to multiline search a code base in a fast manor \
-and avoid using vim tags. In the past have been using `grep` but \
-this tool only searches single lines.
+Figure out how to multiline search a code base in a fast manor and avoid \
+using vim tags. In the past have been using `grep` but this tool only \
+searches single lines.
 
 ## Solution
 ### Vim tree structure
@@ -34,11 +34,16 @@ function! ft#calter#Cdef_(funcName)
     for qfl in qfLst
         let fpath = bufname(qfl.bufnr)
         let _ = bufload(fpath)
-
+        
+        let lineEOF = getbufline(fpath, '$')[0]
         let lineNum = qfl.lnum
         let lineStr = getbufline(fpath, lineNum)[0]
         let matches = match(lineStr, '[/{;]')
         while matches == -1
+            if lineEOF == lineStr
+                break
+            endif
+
             let lineNum += 1
             let lineStr = getbufline(fpath, lineNum)[0]
             let matches = match(lineStr, '[/{;]')
@@ -92,8 +97,7 @@ in your vimrc file.
 exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
-Fills the quickfixlist with the files that contain \
-the function name.
+Fills the quickfixlist with the files that contain the function name.
 
 ```vim
 let qfLst = getqflist()
@@ -108,24 +112,30 @@ let fpath = bufname(qfl.bufnr)
 let _ = bufload(fpath)
 ```
 Grabs the file path and then loads the buffer if it is not already loaded. \
-Note we do not care about what bufload returns. We need to load each \
-buffer locally to the function so that we can parse the files.
+Note we do not care about what bufload returns. We need to load each buffer \
+locally to the function so that we can parse the files.
 
 ```vim
+let lineEOF = getbufline(fpath, '$')[0]
 let lineNum = qfl.lnum
 let lineStr = getbufline(fpath, lineNum)[0]
 let matches = match(lineStr, '[/{;]')
 while matches == -1
+    if lineEOF == lineStr
+        break
+    endif
+
     let lineNum += 1
     let lineStr = getbufline(fpath, lineNum)[0]
     let matches = match(lineStr, '[/{;]')
 endwhile
 ```
-Grabs the line starting at the function name in the coressponding buffer \
-which is done by `getbufline`. Next we use regex to see if this line \
-contains: '/'=comment, '{'=function definition, ';'=function call. \
-Finally we repeat the above steps till we find one of the three above symbols \
-in a given line from each buffer.
+First grabs the last line and then the line starting at the function name in \
+the coressponding buffer which is done by `getbufline`. Next we use regex to \
+see if this line contains: '/'=comment, '{'=function definition, or 
+';'=function call. Finally we repeat the above steps till we find one of the \
+three above symbols in a given line from each buffer. Or if the line is the \
+end of the file we break from the while loop.
 
 ```vim
 if match(lineStr, '{') != -1
@@ -140,8 +150,8 @@ of the function name. And if we have not found a '{' we go to the next \
 buffer in the quickfixlist. And that's all folks!
 
 ## Fun command
-If working on a server you can use :mksession \<file.vim\> \
-to save all the tabs and settings you have.
+If working on a server you can use :mksession \<file.vim\> to save all \
+the tabs and settings you have.
 
 ## Vim Keyboard Cheat Sheet
 [Vim Cheat Sheet](../docs/vim_sheet.pdf)
