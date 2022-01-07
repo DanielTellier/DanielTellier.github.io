@@ -10,21 +10,13 @@
 - Embedded Systems
 - Machine Learning
 
-## Blog Section Objective
-Share what I learn in a concise manor.
-
-## Note Section Objective
-Reference material for myself and others.
-
 # Table of Contents
 - [Productivity](#productivity)
 - [Vim](#vim)
 
-# Blogs
+# Blogs: What I learn shared in a concise manor
 ## Productivity
 - [Project Based Learning for Programmers](./blogs/project_based_learning_1.md)
 
 ## Vim
 - [Custom Multiline Search in Vim](./blogs/vim_multi_line_search_2.md)
-
-# Notes
