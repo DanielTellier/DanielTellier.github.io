@@ -39,7 +39,7 @@ The above example would have:
 - gridDim.x = 2 blocks
 - blockDim.x = 3 threads
 - blockDim.y = 3 threads
-- kernel<<<2,(3,3)>>>(...);
+- <div>kernel<<<2,(3,3)>>>(...);</div>
 
 ## References
 - Professional CUDA C Programming by John Cheng, Max Grossman, Ty McKercher
