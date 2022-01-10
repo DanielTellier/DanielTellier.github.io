@@ -105,8 +105,10 @@ exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
 Fills the quickfixlist with the files that contain the function name. \
-An example is shown below:
-![QuickFix List]("../images/qucikfixlist-ex.png")
+An example is shown below: \
+
+![QuickFix List]("../images/quickfixlist-ex.png")
+
 Each of the rows in the image can be grabbed as a dictionary. \
 And the items can be accessed as documented here: \
 [Vim getqflist](https://vimhelp.org/builtin.txt.html#getqflist%28%29)
