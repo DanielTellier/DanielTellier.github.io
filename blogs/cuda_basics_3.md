@@ -37,8 +37,8 @@ Grid/Block/Thread examle:
 
 The above example would have:
 - gridDim.x = 2 blocks
-- blockDim.x = 4 threads
-- blockDim.y = 4 threads
+- blockDim.x = 3 threads
+- blockDim.y = 3 threads
 - kernel<<<2,(3,3)>>>(...);
 
 ## References
