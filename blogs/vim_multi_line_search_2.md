@@ -5,6 +5,13 @@ Figure out how to multiline search a code base in a fast manor and avoid \
 using vim tags. In the past have been using `grep` but this tool only \
 searches single lines.
 
+## Table of Contents
+- [Code Solution](#solution)
+- [Code Explanation](#explanation)
+- [mksession](#fun-command)
+- [Vim Cheatsheet](#vim-keyboard-cheat-sheet)
+- [vimrc without plugins](#vimrc-file-without-plugins)
+
 ## Solution
 ### Vim tree structure
 ```shell
@@ -97,7 +104,12 @@ in your vimrc file.
 exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
-Fills the quickfixlist with the files that contain the function name.
+Fills the quickfixlist with the files that contain the function name. \
+An example is shown below:
+![QuickFix List]("../images/qucikfixlist-ex.png")
+Each of the rows in the image can be grabbed as a dictionary. \
+And the items can be accessed as documented here: \
+[Vim getqflist](https://vimhelp.org/builtin.txt.html#getqflist%28%29)
 
 ```vim
 let qfLst = getqflist()
@@ -156,7 +168,7 @@ the tabs and settings you have.
 ## Vim Keyboard Cheat Sheet
 [Vim Cheat Sheet](../docs/vim_sheet.pdf)
 
-## My vimrc file without plugins
+## vimrc file without plugins
 ```vim
 set backspace=indent,eol,start
 set hidden
