@@ -110,7 +110,7 @@ An example is shown below: \
 <img title="QF List" alt="QuickFix List" src="../images/quickfixlist-ex.png">
 
 Each of the rows in the image can be grabbed as a dictionary. \
-And the items can be accessed as documented here: \
+And the items can be accessed as documented here:
 [Vim getqflist](https://vimhelp.org/builtin.txt.html#getqflist%28%29)
 
 ```vim
