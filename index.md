@@ -20,7 +20,7 @@ Create blogs that teach concepts in a concise manor.
 
 # Blogs
 ## CUDA
-- [CUDA Tips and Tricks](./blogs/cuda_tips_tricks_3.md)
+- [CUDA Basics](./blogs/cuda_basics_3.md)
 
 ## Productivity
 - [Project Based Learning for Programmers](./blogs/project_based_learning_1.md)
