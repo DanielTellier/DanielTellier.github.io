@@ -28,7 +28,8 @@ For accessing kernel specific dims and indicies the following are available:
     - tidx = threadIdx.x + blockIdx.x * blockDim.x
 
 Grid/Block/Thread example:
-
+|      |      |      |
+|:----:|:----:|:----:|
 | XXXX | XXXX | XXXX |
 | XXXX | XXXX | XXXX |
 | XXXX | XXXX | XXXX |
