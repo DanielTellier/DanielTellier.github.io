@@ -105,7 +105,7 @@ exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
 Fills the quickfixlist with the files that contain the function name. \
-An example is shown below: \
+An example looking for the function name 'add' is shown below:
 
 <img title="QF List" alt="QuickFix List" src="../images/quickfixlist-ex.png">
 
