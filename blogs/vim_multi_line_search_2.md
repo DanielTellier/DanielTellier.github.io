@@ -92,7 +92,7 @@ the function to find a defintion.
 - The command defined in c.vim `Cdef` can only be called when you are in \
 a c/cpp/cu file. If you wanted any file you would place this command \
 in your vimrc file.
-- The command in c.vim uses the path to the calter.vim file from autoload ergo: \
+- The command in c.vim uses the path to the calter.vim file from autoload ergo:
     - ft#calter#Cdef\_
 
 ### Run Command in c.vim
@@ -145,7 +145,7 @@ while matches == -1
 endwhile
 ```
 First grabs the last line and then the line starting at the function name in \
-the coressponding buffer which is done by `getbufline`. Next we use regex to \
+the corresponding buffer which is done by `getbufline`. Next we use regex to \
 see if this line contains: '/'=comment, '{'=function definition, or \
 ';'=function call. Finally we repeat the above steps till we find one of the \
 three above symbols in a given line from each buffer. Or if the line is the \
