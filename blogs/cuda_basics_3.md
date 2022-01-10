@@ -27,13 +27,12 @@ For accessing kernel specific dims and indicies the following are available:
 - To convert from 2D to linear space along x use:
     - tidx = threadIdx.x + blockIdx.x * blockDim.x
 
-Grid/Block/Thread example: \
-OOOOOOOOOOOOOOOO \
-OXXXXOXXXXOXXXXO \
-OXXXXOXXXXOXXXXO \
-OXXXXOXXXXOXXXXO \
-OXXXXOXXXXOXXXXO \
-OOOOOOOOOOOOOOOO
+Grid/Block/Thread example:
+
+| XXXX | XXXX | XXXX |
+| XXXX | XXXX | XXXX |
+| XXXX | XXXX | XXXX |
+| XXXX | XXXX | XXXX |
 
 The above example would have:
 - gridDim.x = 3 blocks
