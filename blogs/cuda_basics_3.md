@@ -27,19 +27,19 @@ For accessing kernel specific dims and indicies the following are available:
 - To convert from 2D to linear space along x use:
     - tidx = threadIdx.x + blockIdx.x * blockDim.x
 
-Grid/Block/Thread example:
-|      |      |      |
-|:----:|:----:|:----:|
-| XXXX | XXXX | XXXX |
-| XXXX | XXXX | XXXX |
-| XXXX | XXXX | XXXX |
-| XXXX | XXXX | XXXX |
+Grid/Block/Thread examle:
+
+<div>
+<table>
+<tr><td>~~~<br>~~~<br>~~~</td><td>~~~<br>~~~<br>~~~</td></tr>
+</table>
+</div>
 
 The above example would have:
-- gridDim.x = 3 blocks
+- gridDim.x = 2 blocks
 - blockDim.x = 4 threads
 - blockDim.y = 4 threads
-- kernel<<<3,(4,4)>>>(...);
+- kernel<<<2,(3,3)>>>(...);
 
 ## References
 - Professional CUDA C Programming by John Cheng, Max Grossman, Ty McKercher
