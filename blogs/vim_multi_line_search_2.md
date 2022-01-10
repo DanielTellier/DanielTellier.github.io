@@ -106,7 +106,7 @@ exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
 ```
 Fills the quickfixlist with the files that contain the function name. \
 An example is shown below:
-![QuickFix List]("../images/quickfixlist-ex.png")
+![QuickFix List](../images/quickfixlist-ex.png)
 
 Each of the rows in the image can be grabbed as a dictionary. \
 And the items can be accessed as documented here: \
