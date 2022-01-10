@@ -29,10 +29,10 @@ For accessing kernel specific dims and indicies the following are available:
 
 Grid/Block/Thread example: \
 %%%%%%%%%%%%%%%% \
-%xxxx%xxxx%xxxx% \
-%xxxx%xxxx%xxxx% \
-%xxxx%xxxx%xxxx% \
-%xxxx%xxxx%xxxx% \
+%XXXX%XXXX%XXXX% \
+%XXXX%XXXX%XXXX% \
+%XXXX%XXXX%XXXX% \
+%XXXX%XXXX%XXXX% \
 %%%%%%%%%%%%%%%%
 
 The above example would have:
