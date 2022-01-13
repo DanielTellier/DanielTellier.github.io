@@ -5,6 +5,10 @@ Figure out how to multiline search a code base in a fast manor and avoid \
 using vim tags. In the past have been using `grep` but this tool only \
 searches single lines.
 
+## Compatibilty
+The function `bufload` used in my vim script is vim 8 specific. The following
+is my implementatin in [vim 7](#vim-7-version). 
+
 ## Table of Contents
 - [Code Solution](#solution)
 - [Code Explanation](#explanation)
@@ -227,3 +231,50 @@ command! -nargs=* Cgrep call Grep_('--include="*.c*"', <f-args>)
 " Close buffer without closing window
 command! Bd :bp | :sp | :bn | :bd
 ```
+## Vim 7 Version
+```vim
+" Find a function definition for C/Cpp/Cu
+function! ft#calter#Cdef_(funcName)
+
+    exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
+       \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
+    
+    let qfLst = getqflist()
+    for qfl in qfLst
+        let fpath = bufname(qfl.bufnr)
+        let isLoaded = bufloaded(fpath)
+        if isLoaded == 0
+            exe 'tabnew ' . fpath
+        endif
+        
+        let lineEOF = getbufline(fpath, '$')[0]
+        let lineNum = qfl.lnum
+        let lineStr = getbufline(fpath, lineNum)[0]
+        let matches = match(lineStr, '[/{;]')
+        while matches == -1
+            if lineEOF == lineStr
+                break
+            endif
+
+            let lineNum += 1
+            let lineStr = getbufline(fpath, lineNum)[0]
+            let matches = match(lineStr, '[/{;]')
+        endwhile
+
+        if isLoaded == 0
+            exe 'bdelete ' . fpath
+        endif
+        
+        if match(lineStr, '{') != -1
+            exe 'tabnew +' . qfl.lnum . ' ' . fpath
+            echo "File Found at " . qfl.lnum
+            return
+        endif
+    endfor
+
+    echo "File Not Found"
+    return
+
+endfunction
+```
+
