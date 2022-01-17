@@ -1,4 +1,4 @@
-# Blog 2: Custom Multiline Search in Vim
+# Post 2: Custom Multiline Search in Vim
 
 ## Objective
 Figure out how to multiline search a code base in a fast manor and avoid \

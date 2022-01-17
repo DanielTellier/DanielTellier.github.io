@@ -2,7 +2,7 @@
 
 # About
 ## Website Objective
-Create blogs that teach concepts in a concise manor.
+Create posts that teach concepts in a concise manor.
 
 ## Links
 - [Resume](./docs/daniel_tellier.pdf)
@@ -18,13 +18,13 @@ Create blogs that teach concepts in a concise manor.
 - [Productivity](#productivity)
 - [Vim](#vim)
 
-# Blogs
+# Posts
 ## CUDA
-- [CUDA Basics](./blogs/cuda_basics_3.md)
+- [CUDA Basics](./posts/cuda_basics_3.md)
 
 ## Productivity
-- [Project Based Learning for Programmers](./blogs/project_based_learning_1.md)
-- [Simple Personal Website Setup](./blogs/simple_personal_website_setup_4.md)
+- [Project Based Learning for Programmers](./posts/project_based_learning_1.md)
+- [Simple Personal Website Setup](./posts/simple_personal_website_setup_4.md)
 
 ## Vim
-- [Custom Multiline Search in Vim](./blogs/vim_multi_line_search_2.md)
+- [Custom Multiline Search in Vim](./posts/vim_multi_line_search_2.md)
