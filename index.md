@@ -20,11 +20,12 @@ Create posts that teach concepts in a concise manor.
 
 # Posts
 ## CUDA
-- [CUDA Basics](./posts/cuda_basics_3.md)
+- [CUDA Basics](./posts/cuda_basics.md)
 
 ## Productivity
-- [Project Based Learning for Programmers](./posts/project_based_learning_1.md)
-- [Simple Personal Website Setup](./posts/simple_personal_website_setup_4.md)
+- [Project Based Learning for Programmers](./posts/project_based_learning.md)
+- [Simple Personal Website Setup](./posts/simple_personal_website_setup.md)
 
 ## Vim
 - [Custom Multiline Search in Vim](./posts/vim_multi_line_search_2.md)
+- [Effective Vim Usage](./posts/effective_vim_usage.md)

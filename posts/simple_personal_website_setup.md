@@ -1,4 +1,4 @@
-# Post 4: Simple Personal Website Setup
+# Simple Personal Website Setup
 
 ## Project Structure
 ```shell

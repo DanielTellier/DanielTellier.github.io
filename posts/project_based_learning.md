@@ -1,4 +1,4 @@
-# Post 1: Project Based Learning (PBL) for Programmers
+# Project Based Learning (PBL) for Programmers
 
 ## What is PBL
 - Always learn through projects.

@@ -1,4 +1,4 @@
-# Post 3: CUDA Basics
+# CUDA Basics
 
 ## Objective
 Introduce important CUDA basic concepts.
