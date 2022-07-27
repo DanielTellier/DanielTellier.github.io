@@ -6,8 +6,10 @@ Create posts that teach concepts in a concise manor.
 
 ## Links
 - [Resume](./docs/daniel_tellier.pdf)
-- [GitHub](https://github.com/DanielTellier)
-- [LinkedIn](https://www.linkedin.com/in/daniel-tellier-210ab3a4/)
+- <a href="https://github.com/DanielTellier" target="_blank">GitHub</a>
+- <a href="https://www.linkedin.com/in/daniel-tellier-210ab3a4"
+  target="_blank">LinkedIn
+  </a>
 
 ## Areas of Interest
 - Embedded Systems
