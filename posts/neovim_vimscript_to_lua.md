@@ -8,52 +8,42 @@ Provide examples of converting vimscript to lua in a neovim configuration.
 - [Config References](#config-references)
 
 ## Folder Structure
-<table>
-  <tr>
-  <th>Vimscript</th>
-  <th>Lua</th>
-  </tr>
-  <tr>
-  <td align="left">
-  <code>
-  ~/.config/nvim<br>
-  ├── after<br>
-  │   └── ftplugin<br>
-  │       └── c.vim<br>
-  ├── colors<br>
-  │   └── monokai.vim<br>
-  ├── compiler<br>
-  │   └── c.vim<br>
-  ├── doc<br>
-  │   └── notes.md<br>
-  ├── init.lua<br>
-  ├── lua<br>
-  │   ├── mappings.lua<br>
-  │   ├── plugins<br>
-  │   │   ├── finder.lua<br>
-  │   │   └── session.lua<br>
-  │   └── settings.lua<br>
-  └── plugin<br>
-      ├── finder.vim<br>
-      └── session.vim
-  </code>
-  </td>
-  <td align="left">
-  <code>
-  ~/.config/nvim<br>
-  ├── after<br>
-  │   └── ftplugin<br>
-  │       └── c.vim<br>
-  ├── autoload<br>
-  │   └── ft<br>
-  │       └── calter.vim<br>
-  ├── compiler<br>
-  │   └── c.vim<br>
-  └── init.vim
-  </code>
-  </td>
-  </tr>
-</table>
+- Vimscript
+```shell
+~/.config/nvim<br>
+├── after<br>
+│   └── ftplugin<br>
+│       └── c.vim<br>
+├── autoload<br>
+│   └── ft<br>
+│       └── calter.vim<br>
+├── compiler<br>
+│   └── c.vim<br>
+└── init.vim
+```
+- Lua
+```shell
+~/.config/nvim<br>
+├── after<br>
+│   └── ftplugin<br>
+│       └── c.vim<br>
+├── colors<br>
+│   └── monokai.vim<br>
+├── compiler<br>
+│   └── c.vim<br>
+├── doc<br>
+│   └── notes.md<br>
+├── init.lua<br>
+├── lua<br>
+│   ├── mappings.lua<br>
+│   ├── plugins<br>
+│   │   ├── finder.lua<br>
+│   │   └── session.lua<br>
+│   └── settings.lua<br>
+└── plugin<br>
+    ├── finder.vim<br>
+    └── session.vim
+```
 
 ## Config References
 - <a href=
@@ -66,5 +56,4 @@ Provide examples of converting vimscript to lua in a neovim configuration.
   target="_blank">
   Lua Config
   </a>
-
 
