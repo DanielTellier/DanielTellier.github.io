@@ -14,7 +14,7 @@ Provide examples of converting vimscript to lua in a neovim configuration.
   <th>Lua</th>
   </tr>
   <tr>
-  <td>
+  <td valign="top">
   <code>
   ~/.config/nvim<br>
   ├── after<br>
@@ -38,7 +38,7 @@ Provide examples of converting vimscript to lua in a neovim configuration.
       └── session.vim
   </code>
   </td>
-  <td>
+  <td valign="top">
   <code>
   ~/.config/nvim<br>
   ├── after<br>
