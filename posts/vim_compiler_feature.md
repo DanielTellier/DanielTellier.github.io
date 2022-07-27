@@ -12,14 +12,14 @@ to go to files that contain errors within quickfix list.
 
 - Place in $VIMHOME/compiler/c.vim:
 ```vim
-let current_compiler = 'c'
+let current_compiler = 'gcc'
 CompilerSet makeprg=make
 CompilerSet errorformat=%E%f:%l:%c:%m
 ```
 
 - Place in $VIMHOME/after/ftplugin/c.vim:
 ```vim
-compiler c
+compiler gcc
 ```
 
 - Now you can run `make` in vim command mode ergo `:make`:
