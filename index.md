@@ -27,5 +27,7 @@ Create posts that teach concepts in a concise manor.
 - [Simple Personal Website Setup](./posts/simple_personal_website_setup.md)
 
 ## Vim
-- [Custom Multiline Search in Vim](./posts/vim_multi_line_search_2.md)
-- [Effective Vim Usage](./posts/effective_vim_usage.md)
+- [Vim Folder Structure](./posts/vim_folder_structure.md)
+- [Vim Custom Multiline Search](./posts/vim_multi_line_search_2.md)
+- [Vim Key Mappings](./posts/vim_key_mappings.md)
+- [Vim Compiler Feature](./posts/vim_compiler_feature.md)
