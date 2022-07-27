@@ -16,6 +16,7 @@ Create posts that teach concepts in a concise manor.
 # Table of Contents
 - [CUDA](#cuda)
 - [Productivity](#productivity)
+- [Neovim](#neovim)
 - [Vim](#vim)
 
 # Posts
@@ -26,8 +27,11 @@ Create posts that teach concepts in a concise manor.
 - [Project Based Learning for Programmers](./posts/project_based_learning.md)
 - [Simple Personal Website Setup](./posts/simple_personal_website_setup.md)
 
+## Neovim
+- [Neovim Vimscript to Lua](./posts/neovim_vimscript_to_lua.md)
+
 ## Vim
 - [Vim Folder Structure](./posts/vim_folder_structure.md)
-- [Vim Custom Multiline Search](./posts/vim_multi_line_search_2.md)
+- [Vim Custom Multiline Search](./posts/vim_multi_line_search.md)
 - [Vim Key Mappings](./posts/vim_key_mappings.md)
 - [Vim Compiler Feature](./posts/vim_compiler_feature.md)
