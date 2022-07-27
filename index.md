@@ -5,7 +5,7 @@
 Create posts that teach concepts in a concise manor.
 
 ## Links
-- [Resume](./docs/daniel_tellier.pdf)
+- <a href="./docs/daniel_tellier.pdf" target="_blank">Resume</a>
 - <a href="https://github.com/DanielTellier" target="_blank">GitHub</a>
 - <a href="https://www.linkedin.com/in/daniel-tellier-210ab3a4"
   target="_blank">LinkedIn
@@ -23,17 +23,24 @@ Create posts that teach concepts in a concise manor.
 
 # Posts
 ## CUDA
-- [CUDA Basics](./posts/cuda_basics.md)
+- <a href="./posts/cuda_basics.md" target="_blank">CUDA Basics</a>
 
 ## Productivity
-- [Project Based Learning for Programmers](./posts/project_based_learning.md)
-- [Simple Personal Website Setup](./posts/simple_personal_website_setup.md)
+- <a href="./posts/project_based_learning.md"
+  target="_blank">Project Based Learning for Programmers</a>
+- <a href="./posts/simple_personal_website_setup.md"
+  target="_blank">Simple Personal Website Setup</a>
 
 ## Neovim
-- [Neovim Vimscript to Lua](./posts/neovim_vimscript_to_lua.md)
+- <a href="./posts/neovim_vimscript_to_lua.md"
+  target="_blank">Neovim Vimscript to Lua</a>
 
 ## Vim
-- [Vim Folder Structure](./posts/vim_folder_structure.md)
-- [Vim Custom Multiline Search](./posts/vim_multi_line_search.md)
-- [Vim Key Mappings](./posts/vim_key_mappings.md)
-- [Vim Compiler Feature](./posts/vim_compiler_feature.md)
+- <a href="./posts/vim_folder_structure.md"
+  target="_blank">Vim Folder Structure</a>
+- <a href="./posts/vim_multi_line_search.md"
+  target="_blank">Vim Custom Multiline Search</a>
+- <a href="./posts/vim_key_mappings.md"
+  target="_blank">Vim Key Mappings</a>
+- <a href="./posts/vim_compiler_feature.md"
+  target="_blank">Vim Compiler Feature</a>

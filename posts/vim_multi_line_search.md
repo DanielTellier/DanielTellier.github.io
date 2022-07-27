@@ -115,7 +115,8 @@ An example looking for the function name 'add' is shown below:
 
 Each of the rows in the image can be grabbed as a dictionary. \
 And the items can be accessed as documented here:
-[Vim getqflist](https://vimhelp.org/builtin.txt.html#getqflist%28%29)
+- <a href="https://vimhelp.org/builtin.txt.html#getqflist%28%29"
+  target="_blank">Vim getqflist</a>
 
 ```vim
 let qfLst = getqflist()
@@ -172,7 +173,8 @@ If working on a server you can use :mksession \<file.vim\> to save all \
 the tabs and settings you have.
 
 ## Vim Keyboard Cheat Sheet
-[Vim Cheat Sheet](../docs/vim_sheet.pdf)
+- <a href="../docs/vim_sheet.pdf"
+  target="_blank">Vim Cheat Sheet</a>
 
 ## vimrc file without plugins
 ```vim
