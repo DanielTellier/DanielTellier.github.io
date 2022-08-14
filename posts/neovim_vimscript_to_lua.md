@@ -4,45 +4,75 @@
 Provide examples of converting vimscript to lua in a neovim configuration.
 
 ## Table of Contents
-- [Folder Structure](#folder-structure)
+- [Folder Structures](#folder-structures)
 - [Config References](#config-references)
 
-## Folder Structure
+## Folder Structures
 - Vimscript
 ```shell
-~/.config/nvim<br>
-├── after<br>
-│   └── ftplugin<br>
-│       └── c.vim<br>
-├── autoload<br>
-│   └── ft<br>
-│       └── calter.vim<br>
-├── compiler<br>
-│   └── c.vim<br>
+~/.config/nvim
+├── after
+│   └── ftplugin
+│       └── c.vim
+├── autoload
+│   └── ft
+│       └── calter.vim
+├── compiler
+│   └── c.vim
 └── init.vim
 ```
 - Lua
 ```shell
-~/.config/nvim<br>
-├── after<br>
-│   └── ftplugin<br>
-│       └── c.vim<br>
-├── colors<br>
-│   └── monokai.vim<br>
-├── compiler<br>
-│   └── c.vim<br>
-├── doc<br>
-│   └── notes.md<br>
-├── init.lua<br>
-├── lua<br>
-│   ├── mappings.lua<br>
-│   ├── plugins<br>
-│   │   ├── finder.lua<br>
-│   │   └── session.lua<br>
-│   └── settings.lua<br>
-└── plugin<br>
-    ├── finder.vim<br>
+~/.config/nvim
+├── after
+│   └── ftplugin
+│       └── c.vim
+├── colors
+│   └── monokai.vim
+├── compiler
+│   └── c.vim
+├── doc
+│   └── notes.md
+├── init.lua
+├── lua
+│   ├── mappings.lua
+│   ├── plugins
+│   │   ├── finder.lua
+│   │   └── session.lua
+│   └── settings.lua
+└── plugin
+    ├── finder.vim
     └── session.vim
+```
+
+- Lua Plugins
+```shell
+~/.config/nvim
+├── doc
+│   └── notes.md
+├── init.lua
+├── lua
+│   ├── colorscheme.lua
+│   ├── keymappings.lua
+│   ├── lsp.lua
+│   ├── plugins
+│   │   ├── cmp.lua
+│   │   ├── cokeline-nvim.lua
+│   │   ├── floaterm-vim.lua
+│   │   ├── lspsaga.lua
+│   │   ├── lualine.lua
+│   │   ├── null-ls.lua
+│   │   ├── nvim-autopairs.lua
+│   │   ├── nvim-metals.lua
+│   │   ├── nvim-tree.lua
+│   │   ├── nvim-ts-autotag.lua
+│   │   ├── settings.lua
+│   │   ├── tree-sitter.lua
+│   │   └── vim-bbye.lua
+│   ├── plugins.lua
+│   └── settings.lua
+└── plugin
+    └── packer_compiled.lua
 ```
 
 ## Config References
@@ -52,8 +82,13 @@ Provide examples of converting vimscript to lua in a neovim configuration.
   Vimscript Config
   </a>
 - <a href=
-  "https://github.com/DanielTellier/dotfiles/tree/master/nvim"
+  "https://github.com/DanielTellier/dotfiles/tree/master/nvim/lua.old"
   target="_blank">
   Lua Config
   </a>
 
+- <a href=
+  "https://github.com/DanielTellier/dotfiles/tree/master/nvim"
+  target="_blank">
+  Lua Plugins Config
+  </a>

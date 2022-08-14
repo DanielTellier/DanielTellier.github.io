@@ -2,10 +2,10 @@
 
 # About
 ## Website Objective
-Create posts that teach concepts in a concise manor.
+- Create posts that teach concepts in a concise manor.
 
 ## Links
-- <a href="https://danieltellier.github.io/docs/daniel_tellier.pdf"
+- <a href="https://raw.githubusercontent.com/DanielTellier/resumes/master/default/daniel_tellier.pdf"
   target="_blank">Resume</a>
 - <a href="https://github.com/DanielTellier" target="_blank">GitHub</a>
 - <a href="https://www.linkedin.com/in/daniel-tellier-210ab3a4"
@@ -13,7 +13,9 @@ Create posts that teach concepts in a concise manor.
   </a>
 
 ## Areas of Interest
+- DevOps
 - Embedded Systems
+- High Performance Computing
 - Machine Learning
 
 # Table of Contents
@@ -24,17 +26,17 @@ Create posts that teach concepts in a concise manor.
 
 # Posts
 ## CUDA
-- [CUDA Basics](./posts/cuda_basics.md)
+- [CUDA Basics](/posts/cuda_basics.md)
 
 ## Productivity
-- [Project Based Learning for Programmers](./posts/project_based_learning.md)
-- [Simple Personal Website Setup](./posts/simple_personal_website_setup.md)
+- [Project Based Learning for Programmers](/posts/project_based_learning.md)
+- [Simple Personal Website Setup](/posts/simple_personal_website_setup.md)
 
 ## Neovim
-- [Neovim Vimscript to Lua](./posts/neovim_vimscript_to_lua.md)
+- [Neovim Vimscript to Lua](/posts/neovim_vimscript_to_lua.md)
 
 ## Vim
-- [Vim Folder Structure](./posts/vim_folder_structure.md)
-- [Vim Custom Multiline Search](./posts/vim_multi_line_search.md)
-- [Vim Key Mappings](./posts/vim_key_mappings.md)
-- [Vim Compiler Feature](./posts/vim_compiler_feature.md)
+- [Vim Folder Structure](/posts/vim_folder_structure.md)
+- [Vim Custom Multiline Search](/posts/vim_multi_line_search.md)
+- [Vim Key Mappings](/posts/vim_key_mappings.md)
+- [Vim Compiler Feature](/posts/vim_compiler_feature.md)

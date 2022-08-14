@@ -1,29 +1,48 @@
 # Simple Personal Website Setup
 
+## Objective
+Show how to create simple website through GitHub.
+
+## Table of Contents
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Config Setup](#config-setup)
+
 ## Project Structure
 ```shell
-DanielTellier.github.io/
-├── blogs
-│   ├── concurrency_vs_parallelism_5.md
-│   ├── cuda_basics_3.md
-│   ├── project_based_learning_1.md
-│   ├── simple_personal_website_setup_4.md
-│   └── vim_multi_line_search_2.md
+<User Name>.github.io
+├── 404.html
 ├── _config.yml
 ├── docs
-│   ├── daniel_tellier.pdf
-│   └── vim_sheet.pdf
+│   └── list of docs here
+├── Gemfile
+├── Gemfile.lock
 ├── images
-│   └── quickfixlist-ex.png
+│   └── list of images here
 ├── index.md
-└── README.md
+├── posts
+│   └── list of posts as markdown files here
+├── README.md
+└── _site
+    └── list of necessary site files here
 ```
 
-## Remove Website Title
+## Prerequisites
+- Install the following:
+```shell```
+- <a href="https://github.com/DanielTellier" target="_blank">GitHub</a>
+
+## Config Setup
 Place below in \_config.yml:
 ```shell
 name: <Your Name>
 title: null
+author: null
+baseurl: ""
+url: "https://<User Name>.github.io"
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-feed
 ```
 
 ## Steps

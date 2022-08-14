@@ -1,4 +1,8 @@
-# theme: jekyll-theme-cayman
-# remote_theme: mmistakes/minimal-mistakes
 name: Daniel Tellier
 title: null
+author: null
+baseurl: ""
+url: "https://danieltellier.github.io"
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-feed
