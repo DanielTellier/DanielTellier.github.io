@@ -94,4 +94,8 @@ plugins:
 \_config.yml
 - You can now create an index.md file and link the markdown posts you make \
 in the posts folder.
-
+- Now you can run the following to see your website locally in firefox:
+```shell
+bundle install && bundle exec jekyll serve
+firefox --new-tab --url http://localhost:4000/
+```
