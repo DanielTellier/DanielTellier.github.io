@@ -5,7 +5,7 @@
 - Create posts that teach concepts in a concise manor.
 
 ## Links
-- <a href="https://raw.githubusercontent.com/DanielTellier/resumes/master/default/daniel_tellier.pdf"
+- <a href="/docs/resumes/main/daniel_tellier.pdf"
   target="_blank">Resume</a>
 - <a href="https://github.com/DanielTellier" target="_blank">GitHub</a>
 - <a href="https://www.linkedin.com/in/daniel-tellier-210ab3a4"

@@ -4,3 +4,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# Latex
+*.log
+*.aux
+*.out
