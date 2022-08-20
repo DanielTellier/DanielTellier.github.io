@@ -104,19 +104,23 @@ in your vimrc file.
     - :Cdef \<function name\>
 
 ### Code Explained
+- Fills the quickfixlist with the files that contain the function name.
+
 ```vim
 exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
     \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
 ```
-Fills the quickfixlist with the files that contain the function name. \
-An example looking for the function name 'add' is shown below:
+
+- An example looking for the function name 'add' is shown below:
 
 <img title="QF List" alt="QuickFix List" src="../images/quickfixlist-ex.png">
 
-Each of the rows in the image can be grabbed as a dictionary. \
-And the items can be accessed as documented here:
-- <a href="https://vimhelp.org/builtin.txt.html#getqflist%28%29"
-  target="_blank">Vim getqflist</a>
+- Each of the rows in the image can be grabbed as a dictionary. And the items \
+  can be accessed as documented here:
+  - <a href="https://vimhelp.org/builtin.txt.html#getqflist%28%29"
+    target="_blank">Vim getqflist</a>
+
+- Iterates over each item in the quickfixlist as a dictionary.
 
 ```vim
 let qfLst = getqflist()
@@ -124,15 +128,24 @@ for qfl in qfLst
 " ... more code here ...
 endfor
 ```
-Iterates over each item in the quickfixlist as a dictionary.
+
+- Grabs the file path and then loads the buffer if it is not already loaded.
+- Note we do not care about what bufload returns.
+- We need to load each buffer locally to the function so that we can \
+  parse the files.
 
 ```vim
 let fpath = bufname(qfl.bufnr)
 let _ = bufload(fpath)
 ```
-Grabs the file path and then loads the buffer if it is not already loaded. \
-Note we do not care about what bufload returns. We need to load each buffer \
-locally to the function so that we can parse the files.
+
+- First grabs the last line and then the line starting at the function name in \
+the corresponding buffer which is done by `getbufline`.
+- Next we use regex to see if this line contains: '/'=comment, \
+  '{'=function definition, or ';'=function call.
+- Finally we repeat the above steps till we find one of the three above \
+  symbols in a given line from each buffer. Or if the line is the \
+  end of the file we break from the while loop.
 
 ```vim
 let lineEOF = getbufline(fpath, '$')[0]
@@ -149,12 +162,11 @@ while matches == -1
     let matches = match(lineStr, '[/{;]')
 endwhile
 ```
-First grabs the last line and then the line starting at the function name in \
-the corresponding buffer which is done by `getbufline`. Next we use regex to \
-see if this line contains: '/'=comment, '{'=function definition, or \
-';'=function call. Finally we repeat the above steps till we find one of the \
-three above symbols in a given line from each buffer. Or if the line is the \
-end of the file we break from the while loop.
+
+- If the line in the buffer contains a '{' we have found a function \
+  definition and we open this buffer in a new tab at the specific \
+  line number (qfl.lnum) of the function name.
+- If we have not found a '{' we go to the next buffer in the quickfixlist.
 
 ```vim
 if match(lineStr, '{') != -1
@@ -163,10 +175,6 @@ if match(lineStr, '{') != -1
     return
 endif
 ```
-If the line in the buffer contains a '{' we have found a function definition \
-and we open this buffer in a new tab at the specific line number (qfl.lnum) \
-of the function name. And if we have not found a '{' we go to the next \
-buffer in the quickfixlist. And that's all folks!
 
 ## Fun command
 If working on a server you can use :mksession \<file.vim\> to save all \
