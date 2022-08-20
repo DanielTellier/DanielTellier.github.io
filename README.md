@@ -1,6 +1,11 @@
 # Intro
 Hi I am Daniel Tellier and this is my personal website.
 
+# Important
+A code block with the three backticks will break if directly placed under \
+a bullet point. There needs to be a new line between the bullet and the \
+code block. Also best to put a new line after the matching three backticks.
+
 # Setup
 - Run local website and view in firefox in new tab:
 
