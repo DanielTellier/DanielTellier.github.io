@@ -4,8 +4,16 @@
 Show how to create simple website through GitHub on Ubuntu.
 
 ## Table of Contents
+- [Personal GitHub Site](#personal-github-site)
 - [Project Structure](#project-structure)
 - [Setup](#setup)
+
+## Personal GitHub Site
+- Here is the GitHub link to see all the code from this post:
+  - <a href="https://github.com/DanielTellier/DanielTellier.github.io"
+    target="_blank">Personal Site Example</a>
+- You can follow the link in case you want to reverse engineer things \
+  instead of following this post.
 
 ## Project Structure
 ```shell
