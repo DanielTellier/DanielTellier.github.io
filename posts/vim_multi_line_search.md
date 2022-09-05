@@ -1,8 +1,8 @@
 # Custom Multiline Search in Vim
 
 ## Objective
-Figure out how to multiline search a code base in a fast manor and avoid \
-using vim tags. In the past have been using `grep` but this tool only \
+Figure out how to multiline search a code base in a fast manor and avoid  
+using vim tags. In the past have been using `grep` but this tool only  
 searches single lines.
 
 ## Compatibilty
@@ -88,13 +88,13 @@ runtime $RTP/after/ftplugin/c.vim
 
 ## Explanation
 ### Important Details
-- calter.vim is in the autoload folder because it should only load when \
+- calter.vim is in the autoload folder because it should only load when  
 the function is called.
-- If calter.vim was placed in the c.vim file you would get an error \
-since the function would load when another c/cpp/cu file opens from \
+- If calter.vim was placed in the c.vim file you would get an error  
+since the function would load when another c/cpp/cu file opens from  
 the function to find a defintion.
-- The command defined in c.vim `Cdef` can only be called when you are in \
-a c/cpp/cu file. If you wanted any file you would place this command \
+- The command defined in c.vim `Cdef` can only be called when you are in  
+a c/cpp/cu file. If you wanted any file you would place this command  
 in your vimrc file.
 - The command in c.vim uses the path to the calter.vim file from autoload ergo:
     - ft#calter#Cdef\_
@@ -115,7 +115,7 @@ exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
 
 <img title="QF List" alt="QuickFix List" src="../images/quickfixlist-ex.png">
 
-- Each of the rows in the image can be grabbed as a dictionary. And the items \
+- Each of the rows in the image can be grabbed as a dictionary. And the items  
   can be accessed as documented here:
   - <a href="https://vimhelp.org/builtin.txt.html#getqflist%28%29"
     target="_blank">Vim getqflist</a>
@@ -131,7 +131,7 @@ endfor
 
 - Grabs the file path and then loads the buffer if it is not already loaded.
 - Note we do not care about what bufload returns.
-- We need to load each buffer locally to the function so that we can \
+- We need to load each buffer locally to the function so that we can  
   parse the files.
 
 ```vim
@@ -139,12 +139,12 @@ let fpath = bufname(qfl.bufnr)
 let _ = bufload(fpath)
 ```
 
-- First grabs the last line and then the line starting at the function name in \
+- First grabs the last line and then the line starting at the function name in  
 the corresponding buffer which is done by `getbufline`.
-- Next we use regex to see if this line contains: '/'=comment, \
+- Next we use regex to see if this line contains: '/'=comment,  
   '{'=function definition, or ';'=function call.
-- Finally we repeat the above steps till we find one of the three above \
-  symbols in a given line from each buffer. Or if the line is the \
+- Finally we repeat the above steps till we find one of the three above  
+  symbols in a given line from each buffer. Or if the line is the  
   end of the file we break from the while loop.
 
 ```vim
@@ -163,8 +163,8 @@ while matches == -1
 endwhile
 ```
 
-- If the line in the buffer contains a '{' we have found a function \
-  definition and we open this buffer in a new tab at the specific \
+- If the line in the buffer contains a '{' we have found a function  
+  definition and we open this buffer in a new tab at the specific  
   line number (qfl.lnum) of the function name.
 - If we have not found a '{' we go to the next buffer in the quickfixlist.
 
@@ -177,7 +177,7 @@ endif
 ```
 
 ## Fun command
-If working on a server you can use :mksession \<file.vim\> to save all \
+If working on a server you can use :mksession \<file.vim\> to save all  
 the tabs and settings you have.
 
 ## Vim Keyboard Cheat Sheet

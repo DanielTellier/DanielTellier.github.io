@@ -12,7 +12,7 @@ Show how to create simple website through GitHub on Ubuntu.
 - Here is the GitHub link to see all the code from this post:
   - <a href="https://github.com/DanielTellier/DanielTellier.github.io"
     target="_blank">Personal Site Example</a>
-- You can follow the link in case you want to reverse engineer things \
+- You can follow the link in case you want to reverse engineer things  
   instead of following this post.
 
 ## Project Structure
@@ -57,7 +57,7 @@ git clone git@github.com:<User Name>/<User Name>.github.io.git
 jekyll new --skip-bundle
 ```
 
-- Comment out the following line in the Gemfile created from the above \
+- Comment out the following line in the Gemfile created from the above  
 command: `# gem "jekyll"`
 - Change the following line in the Gemfile `# gem "github-pages"` to:
 
@@ -116,9 +116,9 @@ plugins:
 - You can change the default folder structure to the example shown here:
   - [Project Structure](#project-structure)
 - Now commit and push changes to the above remote repo.
-- You should now be able to view your site using the url specified in the \
+- You should now be able to view your site using the url specified in the  
 \_config.yml
-- You can now create an index.md file and link the markdown posts you make \
+- You can now create an index.md file and link the markdown posts you make  
 in the posts folder.
 - Now you can run the following to see your website locally in firefox:
 
@@ -127,11 +127,11 @@ bundle install && bundle exec jekyll serve
 firefox --new-tab --url http://localhost:4000/
 ```
 
-- You can keep the webpage open as long as the `bundle install...` command \
+- You can keep the webpage open as long as the `bundle install...` command  
   is running and do the following:
     - Edit a post file and save
     - Refresh the local webpage on firefox to see the change
-    - Once you like all the changes made to the webpage you can commit and \
+    - Once you like all the changes made to the webpage you can commit and  
     push your new post to GitHub.
-    - You can now wait a minute or two and view your changes on your \
+    - You can now wait a minute or two and view your changes on your  
     \<User Name\>.github.io site rather than your local.

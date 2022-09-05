@@ -48,7 +48,7 @@ The above example would have:
 
 ## Bandwidth vs Throughput vs Latency
 - Bandwidth -> highest possible data transfer per time unit
-- Throughput -> rate of any kind of info or operations carried out per \
+- Throughput -> rate of any kind of info or operations carried out per  
 time unit, ergo how many instructions completed per cycle
 - Latency -> time for an operation to complete
 - Pipe Analogy:
@@ -56,26 +56,26 @@ time unit, ergo how many instructions completed per cycle
     - Latency = how long things take to travel through the length of the pipe
 
 ## CPU vs GPU
-- CPU designed to minimize latency for a single thread which leads to fitting \
+- CPU designed to minimize latency for a single thread which leads to fitting  
 a few cores per CPU chip.
-- GPU designed to maximize total execution throughput by running a large \
-number of threads which leads to fitting thousands of less powerful cores \
+- GPU designed to maximize total execution throughput by running a large  
+number of threads which leads to fitting thousands of less powerful cores  
 per GPU chip.
-- If Application has sections of high parallelization then a GPU can achieve \
+- If Application has sections of high parallelization then a GPU can achieve  
 high bandwidth to make up for each core's longer latency.
 
 ## GPU Layout
 - GPUs are a collection of Streaming Multiprocessors (SM).
-- The SM varies between GPUs ergo why you will see sm\_xx as gencode option \
+- The SM varies between GPUs ergo why you will see sm\_xx as gencode option  
 to nvcc compiler.
-- SM partitions blocks assigned to it into 32 threads called warps and \
-schedules available warps for execution. All threads in a warp execute \
+- SM partitions blocks assigned to it into 32 threads called warps and  
+schedules available warps for execution. All threads in a warp execute  
 same instruction.
 - Each SM varies in amount of allowable warps to be active at once.
-- GPU hides latency by having an SM schedule a different warp when \
-one becomes inactive due to waiting for resources. No overhead occured by \
+- GPU hides latency by having an SM schedule a different warp when  
+one becomes inactive due to waiting for resources. No overhead occured by  
 switching warps since already stored on specific SM.
-- Threads within warps have own instruction address counter, register state, \
+- Threads within warps have own instruction address counter, register state,  
 and carry out instructions on own data.
 
 ## GPU Memory Layout
@@ -83,8 +83,8 @@ and carry out instructions on own data.
 - Shared Memory -> on-chip GPU memory
 - Local Memory -> can be in DRAM or on-chip
 - Global Memory has the longest latency in terms of access.
-- Shared Memory is alloted to each SM and a copy is created for each block \
-launched, thus every thread in a block shares this memory which requires \
+- Shared Memory is alloted to each SM and a copy is created for each block  
+launched, thus every thread in a block shares this memory which requires  
 kernel synchronization.
 
 ## References

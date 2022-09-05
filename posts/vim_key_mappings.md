@@ -9,24 +9,24 @@ Show useful builtin and custom keyboard shortcuts.
 
 ## Mapping Keys
 ### map vs \<...\>map
-- The below example will cause an infinite recursive process \
-  because when x is pressed it will be mapped to y and then \
+- The below example will cause an infinite recursive process  
+  because when x is pressed it will be mapped to y and then  
   the next map will do the opposite.
   ```vim
   map x y
   map y x
   ```
 
-- The below example will cause a non-recursive process so an \
-  infinite recursive process will not occur and the mappings \
+- The below example will cause a non-recursive process so an  
+  infinite recursive process will not occur and the mappings  
   will only apply once.
   ```vim
   noremap x y
   noremap y x
   ```
 
-- The following characters at the beginning of map and noremap for example \
-  the character `i` correspond to specific modes in vim. Running \
+- The following characters at the beginning of map and noremap for example  
+  the character `i` correspond to specific modes in vim. Running  
   `:help map` in vim will provide the following:
   ```txt
        COMMANDS                    MODES ~

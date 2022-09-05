@@ -7,7 +7,7 @@ Show how to use vim's compiler feature.
 - [Compiler Feature](#compiler-feature)
 
 ## Compiler Feature
-- Setup make in vim for c language (can be applied to any language) \
+- Setup make in vim for c language (can be applied to any language)  
 to go to files that contain errors within quickfix list.
 
 - Place in $VIMHOME/compiler/c.vim:
@@ -23,7 +23,7 @@ compiler gcc
 ```
 
 - Now you can run `make` in vim command mode ergo `:make`:
-    - The above will open the first file found with an error and take \
+    - The above will open the first file found with an error and take  
     you directly to the line with the issue.
-    - You can go to the next error if there is one with :cn or you can \
+    - You can go to the next error if there is one with :cn or you can  
     go to the previous with :cp.
