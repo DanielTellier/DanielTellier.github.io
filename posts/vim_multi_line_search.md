@@ -40,12 +40,12 @@ function! ft#calter#Cdef_(funcName)
 
     exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
        \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
-    
+
     let qfLst = getqflist()
     for qfl in qfLst
         let fpath = bufname(qfl.bufnr)
         let _ = bufload(fpath)
-        
+
         let lineEOF = getbufline(fpath, '$')[0]
         let lineNum = qfl.lnum
         let lineStr = getbufline(fpath, lineNum)[0]
@@ -59,7 +59,7 @@ function! ft#calter#Cdef_(funcName)
             let lineStr = getbufline(fpath, lineNum)[0]
             let matches = match(lineStr, '[/{;]')
         endwhile
-        
+
         if match(lineStr, '{') != -1
             exe 'tabnew +' . qfl.lnum . ' ' . fpath
             echo "File Found at " . qfl.lnum
@@ -248,7 +248,7 @@ function! ft#calter#Cdef_(funcName)
 
     exe 'silent grep! -r --include="*.c" --include="*.cpp" ' .
        \ '--include="*.cu" ' . a:funcName . ' .' | redraw!
-    
+
     let qfLst = getqflist()
     for qfl in qfLst
         let fpath = bufname(qfl.bufnr)
@@ -256,7 +256,7 @@ function! ft#calter#Cdef_(funcName)
         if isLoaded == 0
             exe 'tabnew ' . fpath
         endif
-        
+
         let lineEOF = getbufline(fpath, '$')[0]
         let lineNum = qfl.lnum
         let lineStr = getbufline(fpath, lineNum)[0]
@@ -274,7 +274,7 @@ function! ft#calter#Cdef_(funcName)
         if isLoaded == 0
             exe 'bdelete ' . fpath
         endif
-        
+
         if match(lineStr, '{') != -1
             exe 'tabnew +' . qfl.lnum . ' ' . fpath
             echo "File Found at " . qfl.lnum

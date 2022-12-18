@@ -28,6 +28,9 @@
 ## CUDA
 - [CUDA Basics](/posts/cuda_basics.md)
 
+## Jenkins
+- [Jenkins Draft](/posts/jenkins_draft.md)
+
 ## Productivity
 - [Project Based Learning for Programmers](/posts/project_based_learning.md)
 - [Simple Personal Website Setup](/posts/simple_personal_website_setup.md)
