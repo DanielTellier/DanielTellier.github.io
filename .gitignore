@@ -9,3 +9,6 @@ vendor
 *.log
 *.aux
 *.out
+
+# Mac
+.DS_Store
