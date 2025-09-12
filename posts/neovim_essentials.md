@@ -1,4 +1,4 @@
-# Neovim: Guide to Efficient Text Editing
+# Neovim Essentials
 
 ## Modes: Your Foundation
 

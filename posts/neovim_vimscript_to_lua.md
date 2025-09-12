@@ -77,18 +77,18 @@ Provide examples of converting vimscript to lua in a neovim configuration.
 
 ## Config References
 - <a href=
-  "https://github.com/DanielTellier/dotfiles/tree/master/nvim/nvim.old"
+  "https://github.com/DanielTellier/dotfiles/tree/master/vim"
   target="_blank">
   Vimscript Config
   </a>
 - <a href=
-  "https://github.com/DanielTellier/dotfiles/tree/master/nvim/lua.old"
+  "https://github.com/DanielTellier/dotfiles/tree/master/nvim"
   target="_blank">
   Lua Config
   </a>
 
 - <a href=
-  "https://github.com/DanielTellier/dotfiles/tree/master/nvim"
+  "https://github.com/DanielTellier/dotfiles/tree/master/nvim/lua/plugins"
   target="_blank">
   Lua Plugins Config
   </a>
