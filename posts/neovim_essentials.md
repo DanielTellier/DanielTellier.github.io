@@ -1,48 +1,5 @@
 # Neovim Essentials
 
-## Modes: Your Foundation
-
-Neovim has 4 modes. Learn to switch between them:
-- **Normal mode**: Navigate and edit (press `Esc`)
-- **Insert mode**: Type text (press `i`)
-- **Visual mode**: Select text (press `v`)
-- **Command mode**: Run commands (press `:`)
-
-Rule: Stay in Normal mode unless actively typing. This is where efficiency happens.
-
-## Editing Key Movements
-
-### Basic Movement
-
-Instead of arrow keys, use:
-- `h j k l` - left, down, up, right
-- `w` - next word, `b` - previous word
-- `0` - start of line, `$` - end of line
-- `gg` - top of file, `G` - bottom of file
-
-Practice: Open any file and navigate without arrow keys for 10 minutes daily.
-
-### Text Object Movements
-
-Edit text structures intelligently - works with quotes, brackets, functions, etc.
-
-Pattern: operator + text object
-- `dw` - delete word
-- `ci"` - change inside quotes
-- `da(` - delete around parentheses
-- `yi{` - yank inside braces
-- `c3iw` - change 3 words
-
-Learn one operator (`d` delete, `c` change, `y` copy) and it works with every motion you know.
-
-Example config using treesitter for enhanced text objects:
-```lua
--- From treesitter config - operate on code structures
-["af"] = "@function.outer",
-["if"] = "@function.inner",
-["ac"] = "@class.outer"
-```
-
 ## Essential Daily Operations
 
 ### Quick File Navigation
