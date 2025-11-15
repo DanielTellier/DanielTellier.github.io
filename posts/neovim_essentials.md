@@ -569,10 +569,10 @@ Reference open files in chat:
 
 ```
 # In CopilotChat window
-@buffers Review all open files for consistency
+#buffers Review all open files for consistency
 
 # Or specific buffer
-@buffer:1 Explain this file
+#buffer:1 Explain this file
 ```
 
 The `#buffers:listed` command shows all open buffers that can be referenced.

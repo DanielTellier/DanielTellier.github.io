@@ -1,0 +1,34 @@
+Neovim Concepts to Cover
+- Install/Setup (using my config) (X)
+- Key Movements (X)
+- Yank/Paste (X)
+- Key Mappings Setup/Usage
+- Substitutions (replace)
+- Surround
+- Window Movement
+- Search in File and across projects
+  - Telescope
+    - Find files
+    - Live Grep
+    - Buffers
+    - Marks
+    - Help tags
+- Integrated terminal Usage
+- Macros Usage
+  - Storing for later use
+- Git integration
+- Session Management
+- Which-Key Plugin
+- Config Setup
+  - Folder Structure
+  - Settings
+  - File type specific settings
+  - Plugin Management with Lazy
+  - Plugins
+  - Autocmds
+  - Creating commands and adding to a Key Mapping
+  - Creating Utility Functions and using throughout config
+    - Can take the map util function as an example
+- LSP Setup/Usage
+- Copilot/Chat Setup/Usage
+  - Buffers listed in chat (#buffers:listed)
