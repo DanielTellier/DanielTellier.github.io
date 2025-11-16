@@ -4,10 +4,25 @@ Practical guide to daily Neovim usage with real examples.
 
 ## Install/Setup
 
+Install Neovim:
+
+```bash
+# macOS
+brew install neovim
+
+# Ubuntu/Debian
+sudo apt install neovim
+
+# Arch Linux
+sudo pacman -S neovim
+
+# Or download from https://github.com/neovim/neovim/releases
+```
+
 Clone my config:
 
 ```bash
-git clone https://github.com/yourusername/nvim-config ~/.config/nvim
+git clone https://github.com/DanielTellier/nvim-config ~/.config/nvim
 nvim  # First launch installs plugins
 ```
 
@@ -27,16 +42,26 @@ f<char>         # find character forward
 
 ## Yank/Paste
 
+Basic operations:
+
+```
+yy          # yank (copy) current line
+y           # yank visual selection
+yw          # yank word
+y$          # yank to end of line
+yap         # yank paragraph
+
+p           # paste after cursor/line
+P           # paste before cursor/line
+```
+
 System clipboard integration:
 
-```lua
--- Copy to system clipboard
-"+y   # visual mode
-"+yy  # normal mode (whole line)
-
--- Paste from system clipboard
-"+p   # after cursor
-"+P   # before cursor
+```
+"+y         # copy to clipboard (visual mode)
+"+yy        # copy line to clipboard
+"+p         # paste from clipboard (after)
+"+P         # paste from clipboard (before)
 ```
 
 ## Key Mappings Setup
