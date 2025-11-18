@@ -64,15 +64,13 @@ System clipboard integration:
 "+P         # paste from clipboard (before)
 ```
 
-## Key Mappings Setup
+## Key Mappings
 
-Create mappings in `lua/config/keymaps.lua`:
+Basic keymaps:
 
 ```lua
-local map = vim.keymap.set
-
--- Leader key
 vim.g.mapleader = ' '
+local map = vim.keymap.set
 
 -- File operations
 map('n', '<leader>w', ':w<CR>', { desc = 'Save' })
@@ -87,45 +85,27 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Right window' })
 
 ## Substitutions
 
-Search and replace patterns:
-
 ```vim
-:s/old/new/       # first occurrence on line
+:s/old/new/       # first on line
 :s/old/new/g      # all on line
 :%s/old/new/g     # all in file
-:%s/old/new/gc    # all with confirmation
+:%s/old/new/gc    # with confirmation
 :'<,'>s/old/new/g # visual selection
-```
-
-Example: Rename variable across file:
-
-```vim
-:%s/oldVar/newVar/g
 ```
 
 ## Surround
 
-Install nvim-surround plugin:
-
 ```lua
--- lua/plugins/surround.lua
-return {
-  'kylechui/nvim-surround',
-  config = function()
-    require('nvim-surround').setup({})
-  end
-}
+return { 'tpope/vim-surround' }
 ```
 
 Usage:
 
 ```
-ys<motion><char>  # add surround
-ds<char>          # delete surround
-cs<old><new>      # change surround
+ys<motion><char>  # add surround (ysiw" surrounds word)
+ds<char>          # delete surround (ds" removes quotes)
+cs<old><new>      # change surround (cs"' changes quotes)
 ```
-
-Example: `ysiw"` surrounds word with quotes, `cs"'` changes to single quotes.
 
 ## Window Movement
 
@@ -139,69 +119,78 @@ Ctrl-w =         # equalize size
 Ctrl-w q         # close window
 ```
 
-## Search: Telescope
+## Navigation: Flash
 
-Install and configure:
+Quick jump to any location on screen:
 
 ```lua
--- lua/plugins/telescope.lua
+return {
+  'folke/flash.nvim',
+  keys = {
+    { 's', function() require('flash').jump() end, mode = { 'n', 'x', 'o' }, desc = 'Flash' },
+    { 'S', function() require('flash').treesitter() end, mode = { 'n', 'x', 'o' }, desc = 'Flash Treesitter' },
+  },
+}
+```
+
+Type `s` then two characters - labels appear, type label to jump.
+
+## File Tree: Multi-Tree
+
+File explorer with tab support:
+
+```lua
+return {
+  'DanielTellier/multi-tree.nvim',
+  keys = {
+    { '<leader>em', ':MultiTree<CR>', desc = 'Open MultiTree' }
+  },
+}
+```
+
+Navigate file structure, open files in splits or tabs.
+
+## Search: Telescope
+
+Fuzzy finder for files, text, buffers:
+
+```lua
 return {
   'nvim-telescope/telescope.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim' },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim',
+  },
   config = function()
-    local telescope = require('telescope')
-    telescope.setup({
+    require('telescope').setup({
       defaults = {
-        file_ignore_patterns = { "node_modules", ".git/" }
+        mappings = {
+          i = {
+            ['<C-o>'] = 'select_horizontal',
+            ['<C-v>'] = 'select_vertical',
+            ['<C-t>'] = 'select_tab',
+          },
+        },
+      },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        }
       }
     })
+    require('telescope').load_extension('fzf')
   end
 }
 ```
 
-### Find Files
+Common pickers: `find_files`, `live_grep`, `buffers`, `help_tags`, `marks`.
 
-```lua
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Find files' })
-```
-
-Type partial name, fuzzy matches.
-
-### Live Grep
-
-```lua
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { desc = 'Live grep' })
-```
-
-Search text across entire project.
-
-### Buffers
-
-```lua
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = 'Buffers' })
-```
-
-Switch between open files.
-
-### Marks
-
-```lua
-map('n', '<leader>fm', '<cmd>Telescope marks<cr>', { desc = 'Marks' })
-```
-
-Jump to bookmarks. Create marks with `m<letter>`, jump with `'<letter>`.
-
-### Help Tags
-
-```lua
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { desc = 'Help' })
-```
-
-Search Neovim documentation.
+Mappings in picker: `<C-o>` horizontal split, `<C-v>` vertical split, `<C-t>` new tab.
 
 ## Integrated Terminal
-
-Open terminal without leaving Neovim:
 
 ```vim
 :terminal              # full window
@@ -209,17 +198,9 @@ Open terminal without leaving Neovim:
 :vsplit | terminal     # vertical split
 ```
 
-Exit terminal mode: `Ctrl-\ Ctrl-n`
-
-Keymap example:
-
-```lua
-map('n', '<leader>tt', ':split | terminal<CR>', { desc = 'Terminal' })
-```
+Exit terminal mode: `Ctrl-\ Ctrl-n`. Map to keymap: `map('n', '<leader>tt', ':split | terminal<CR>')`.
 
 ## Macros
-
-Record repetitive actions:
 
 ```vim
 qa        # start recording to register 'a'
@@ -229,88 +210,65 @@ q         # stop recording
 5@a       # replay 5 times
 ```
 
-### Store Macros
-
-Paste macro to file:
-
-```vim
-"ap       # paste register 'a' contents
-```
-
-Store in config:
+Store permanently in config:
 
 ```lua
--- Move comma-separated params to own lines
-vim.fn.setreg('f', 'f,lli\b\r\027')
+vim.fn.setreg('f', 'f,lli\b\r\027')  -- Now @f works every session
 ```
-
-Now `@f` works every session.
 
 ## Git Integration
 
-Use fugitive or built-in commands:
+```lua
+return { 'tpope/vim-fugitive' }
+```
+
+Keymaps:
 
 ```lua
--- lua/config/keymaps.lua
 map('n', '<leader>gs', ':Git<CR>', { desc = 'Git status' })
 map('n', '<leader>gc', ':Git commit<CR>', { desc = 'Git commit' })
 map('n', '<leader>gd', ':Git diff<CR>', { desc = 'Git diff' })
 map('n', '<leader>gb', ':Git blame<CR>', { desc = 'Git blame' })
 ```
 
-Or install fugitive:
-
-```lua
--- lua/plugins/fugitive.lua
-return { 'tpope/vim-fugitive' }
-```
-
 ## Session Management
 
-Save/restore workspace state:
+Save and restore workspace state:
 
 ```lua
--- Create session directory
 vim.g.session_dir = vim.fn.stdpath("state") .. "/sessions"
 
--- Command to save sessions
-vim.api.nvim_create_user_command('MakeSession', function(opts)
-  local name = opts.args .. ".vim"
-  local path = vim.g.session_dir .. "/" .. name
-  vim.cmd("mksession! " .. vim.fn.fnameescape(path))
-  print("Saved: " .. name)
+vim.api.nvim_create_user_command('SaveSession', function(opts)
+  vim.cmd("mksession! " .. vim.g.session_dir .. "/" .. opts.args .. ".vim")
 end, { nargs = 1 })
 
 -- Keymaps
-map('n', '<leader>ss', ':MakeSession ', { silent = false, desc = 'Save session' })
-map('n', '<leader>sl', ':source ' .. vim.g.session_dir .. '/', { silent = false, desc = 'Load session' })
+map('n', '<leader>ss', ':SaveSession ', { desc = 'Save session' })
+map('n', '<leader>sl', ':source ' .. vim.g.session_dir .. '/', { desc = 'Load session' })
 ```
 
-Workflow: Open files, arrange splits, `:MakeSession project-name`. Later: `:source ~/.local/state/nvim/sessions/project-name.vim`.
+Save workspace: `:SaveSession project-name`, restore: `:source ~/.local/state/nvim/sessions/project-name.vim`.
 
 ## Which-Key Plugin
 
-Visual keymap helper:
+Shows available keybindings in popup:
 
 ```lua
--- lua/plugins/which-key.lua
 return {
   'folke/which-key.nvim',
   config = function()
-    local wk = require('which-key')
-    wk.setup({ preset = "helix" })
-
-    -- Define keymap groups
-    wk.add({
+    require('which-key').setup({ preset = "helix" })
+    require('which-key').add({
       { "<leader>f", group = "find" },
       { "<leader>g", group = "git" },
+      { "<leader>l", group = "lsp" },
       { "<leader>c", group = "copilot" },
     })
   end
 }
 ```
 
-Press `<leader>` and wait - popup shows all available shortcuts.
+Press `<leader>` - popup displays available shortcuts after short delay.
 
 ## Config Setup
 
@@ -318,54 +276,46 @@ Press `<leader>` and wait - popup shows all available shortcuts.
 
 ```
 ~/.config/nvim/
-├── init.lua                  # Entry point
+├── init.lua                  # Entry point, bootstraps lazy.nvim
 ├── lua/
-│   ├── config/
-│   │   ├── options.lua       # Settings
-│   │   ├── keymaps.lua       # Key mappings
-│   │   ├── autocmds.lua      # Autocommands
-│   │   └── lazy.lua          # Plugin loader
-│   ├── plugins/              # One file per plugin
-│   │   ├── telescope.lua
-│   │   ├── lsp.lua
-│   │   └── ...
-│   └── utils.lua             # Helper functions
-└── after/ftplugin/           # Language-specific
-    ├── python.lua
-    └── c.lua
+│   ├── base_plugins.lua      # Core plugins (which-key, flash, etc.)
+│   └── plugins/              # One file per plugin
+│       ├── telescope.lua
+│       ├── lsp.lua
+│       ├── copilot.lua
+│       └── ...
+├── after/ftplugin/           # Language-specific settings
+└── compiler/                 # Custom compiler configs
 ```
 
 ### Settings
 
-Basic options in `lua/config/options.lua`:
+Common options in `init.lua` or separate config module:
 
 ```lua
-local opt = vim.opt
-
-opt.number = true              -- line numbers
-opt.relativenumber = true      -- relative numbers
-opt.tabstop = 4               -- tab width
-opt.shiftwidth = 4            -- indent width
-opt.expandtab = true          -- spaces not tabs
-opt.clipboard = "unnamedplus" -- system clipboard
-opt.ignorecase = true         -- case insensitive search
-opt.smartcase = true          -- case sensitive if uppercase used
+vim.opt.number = true              -- line numbers
+vim.opt.relativenumber = true      -- relative line numbers
+vim.opt.tabstop = 4                -- tab width
+vim.opt.shiftwidth = 4             -- indent width
+vim.opt.expandtab = true           -- spaces not tabs
+vim.opt.clipboard = "unnamedplus"  -- system clipboard
+vim.opt.ignorecase = true          -- case insensitive search
+vim.opt.smartcase = true           -- smart case sensitivity
 ```
 
 ### File Type Settings
 
-Language-specific settings in `after/ftplugin/`:
+`after/ftplugin/<language>.lua`:
 
 ```lua
--- after/ftplugin/python.lua
+-- python.lua
 vim.opt_local.tabstop = 4
 vim.opt_local.shiftwidth = 4
 vim.keymap.set('n', '<leader>r', ':!python %<CR>', { buffer = true })
 
--- after/ftplugin/c.lua
+-- c.lua
 vim.opt_local.tabstop = 2
 vim.opt_local.cindent = true
-vim.cmd('compiler gcc')
 ```
 
 ### Plugin Management: Lazy
@@ -373,52 +323,54 @@ vim.cmd('compiler gcc')
 Bootstrap in `init.lua`:
 
 ```lua
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git", "clone", "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git", lazypath
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ import = "plugins" })
-```
+-- Set leader keys
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
-Load config:
-
-```lua
-require('config.options')
-require('config.keymaps')
-require('config.autocmds')
+-- Load plugins
+require("lazy").setup({
+  spec = {
+    { import = "base_plugins" },
+    { import = "plugins" },
+  },
+  ui = { border = "single" },
+  checker = { enabled = true },
+})
 ```
 
 ### Adding Plugins
 
-Create `lua/plugins/<name>.lua`:
+`lua/plugins/<name>.lua`:
 
 ```lua
 return {
   'author/plugin-name',
-  dependencies = { 'required/dependency' },
+  dependencies = { 'dependency-name' },
   config = function()
-    require('plugin-name').setup({
-      -- configuration
-    })
+    require('plugin-name').setup({ })
   end
 }
 ```
 
 ### Autocmds
 
-Auto-run commands on events in `lua/config/autocmds.lua`:
+Automatic actions on events:
 
 ```lua
--- Highlight on yank
+-- Highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = function() vim.highlight.on_yank() end,
 })
 
 -- Remove trailing whitespace on save
@@ -426,115 +378,62 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   command = "%s/\\s\\+$//e",
 })
-
--- Set filetype for .env files
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-  pattern = {"*.env", ".env.*"},
-  callback = function()
-    vim.bo.filetype = "sh"
-  end,
-})
 ```
 
-### Creating Commands
-
-Define custom commands:
+### Custom Commands
 
 ```lua
 vim.api.nvim_create_user_command('Format', function()
   vim.lsp.buf.format()
 end, {})
-```
 
-Map to keymap:
-
-```lua
-map('n', '<leader>lf', ':Format<CR>', { desc = 'Format file' })
-```
-
-### Utility Functions
-
-Create reusable functions in `lua/utils.lua`:
-
-```lua
-local M = {}
-
--- Consistent keymap helper
-function M.map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend('force', options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
-end
-
--- Toggle line numbers
-function M.toggle_numbers()
-  if vim.wo.relativenumber then
-    vim.wo.relativenumber = false
-  elseif vim.wo.number then
-    vim.wo.number = false
-  else
-    vim.wo.number = true
-    vim.wo.relativenumber = true
-  end
-end
-
-return M
-```
-
-Use in config:
-
-```lua
-local utils = require('utils')
-utils.map('n', '<leader>tn', utils.toggle_numbers, { desc = 'Toggle numbers' })
+-- Use: :Format or map to keymap
+vim.keymap.set('n', '<leader>lf', ':Format<CR>', { desc = 'Format' })
 ```
 
 ## LSP Setup
 
-Language server integration in `lua/plugins/lsp.lua`:
+Language server integration with Mason:
 
 ```lua
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'williamboman/mason.nvim',           -- LSP installer
-    'williamboman/mason-lspconfig.nvim', -- Mason <-> lspconfig bridge
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
     require('mason').setup()
-    require('mason-lspconfig').setup({
-      ensure_installed = { 'pyright', 'lua_ls', 'clangd' }
-    })
+    require('mason-lspconfig').setup()
 
     local lsp = require('lspconfig')
 
-    -- Python
-    lsp.pyright.setup({})
-
-    -- Lua
+    -- Configure servers (pyright, lua_ls, clangd)
     lsp.lua_ls.setup({
-      settings = {
-        Lua = {
-          diagnostics = { globals = { 'vim' } }
-        }
-      }
+      settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
     })
+    lsp.pyright.setup({})
+    lsp.clangd.setup({})
 
-    -- Keymaps
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover docs' })
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename' })
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action' })
+    -- All LSP keymaps under <leader>l
+    local map = vim.keymap.set
+    map('n', '<leader>ld', vim.lsp.buf.definition, { desc = 'Definition' })
+    map('n', '<leader>lh', vim.lsp.buf.hover, { desc = 'Hover' })
+    map('n', '<leader>li', vim.lsp.buf.implementation, { desc = 'Implementation' })
+    map('n', '<leader>lr', vim.lsp.buf.references, { desc = 'References' })
+    map('n', '<leader>ls', vim.lsp.buf.rename, { desc = 'Rename' })
+    map('n', '<leader>lc', vim.lsp.buf.code_action, { desc = 'Code action' })
   end
 }
 ```
 
-Usage: `gd` jumps to definition, `K` shows docs, `<leader>rn` renames symbol.
+All LSP commands grouped under `<leader>l` prefix for consistency.
 
 ## Copilot Setup
 
-AI assistance in `lua/plugins/copilot.lua`:
+AI-powered completion and chat interface:
 
 ```lua
 return {
@@ -544,7 +443,7 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = "<C-j>",
+          accept = "<Tab>",
           next = "<C-]>",
           prev = "<C-[>",
         }
@@ -556,51 +455,37 @@ return {
 
 ### Copilot Chat
 
-Add chat interface:
+Chat interface with custom prompts:
 
 ```lua
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
-  dependencies = {
-    { 'zbirenbaum/copilot.lua' },
-    { 'nvim-lua/plenary.nvim' },
-  },
+  dependencies = { 'zbirenbaum/copilot.lua', 'nvim-lua/plenary.nvim' },
   opts = {
-    model = 'claude-3.5-sonnet',
     prompts = {
-      Review = {
-        prompt = '/COPILOT_REVIEW Review code and suggest improvements',
-      },
-      Explain = {
-        prompt = '/COPILOT_EXPLAIN Explain how this works',
-      },
+      -- Code prompts
+      Explain = { prompt = '/COPILOT_EXPLAIN Explain how this works' },
+      Review = { prompt = '/COPILOT_REVIEW Review for bugs and improvements' },
+      Tests = { prompt = '/COPILOT_TESTS Generate tests for this code' },
+      Refactor = { prompt = '/COPILOT_REFACTOR Refactor for readability' },
+      FixCode = { prompt = '/COPILOT_FIX Fix bugs in this code' },
+
+      -- Text prompts
+      Summarize = { prompt = 'Summarize the selected text' },
+      Spelling = { prompt = 'Fix spelling and grammar' },
+      Wording = { prompt = 'Improve wording' },
+      Concise = { prompt = 'Make text more concise' },
     },
   },
-  config = function(_, opts)
-    local chat = require('CopilotChat')
-    chat.setup(opts)
-
-    -- Keymaps
-    vim.keymap.set('n', '<leader>ct', chat.toggle, { desc = 'Toggle Copilot Chat' })
-    vim.keymap.set('v', '<leader>cr', ':CopilotChatReview<CR>', { desc = 'Review code' })
-    vim.keymap.set('v', '<leader>ce', ':CopilotChatExplain<CR>', { desc = 'Explain code' })
-  end
+  keys = {
+    { '<leader>ct', ':CopilotChatToggle<CR>', desc = 'Toggle chat' },
+    { '<leader>ce', ':CopilotChatExplain<CR>', mode = 'v', desc = 'Explain' },
+    { '<leader>cr', ':CopilotChatReview<CR>', mode = 'v', desc = 'Review' },
+  }
 }
 ```
 
-### Use Buffers in Chat
-
-Reference open files in chat:
-
-```
-# In CopilotChat window
-#buffers Review all open files for consistency
-
-# Or specific buffer
-#buffer:1 Explain this file
-```
-
-The `#buffers:listed` command shows all open buffers that can be referenced.
+Chat keybindings: `<CR>` submit, `q` close, `<C-x>` reset, `<C-y>` accept diff.
 
 ## Next Steps
 
