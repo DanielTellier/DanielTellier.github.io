@@ -24,50 +24,57 @@ Extract my config:
 ```bash
 mkdir -p ~/.config/nvim
 curl -L https://github.com/DanielTellier/dotfiles/archive/refs/heads/master.tar.gz | tar xz -C ~/.config/nvim --strip=2 dotfiles-master/nvim
-nvim  # First launch installs plugins
 ```
 
-## Key Movements
+## Setup Project to Learn Concepts Below
+```bash
+mkdir ~/Projects
+cd ~/Projects
+git clone git@github.com:DanielTellier/multi-tree.nvim.git # Setup ssh key to clone
+cd multi-tree.nvim
+nvim . # First launch installs plugins
+```
 
-Master these first:
+In the editor press: `jjljl4jl` this will open `init.lua` and you can now continue to
+the next sections
+
+
+## Basic Keys
+
+Can get by using vim with just these keys (would be very unproductive though):
 
 ```
+i <esc>         # Edit mode (can enter text now)/Escape edit mode (can now navigate file)
+
 h j k l         # left, down, up, right
 w b             # word forward/back
 0 $             # line start/end
 gg G            # file start/end
-{ }             # paragraph up/down
 Ctrl-d Ctrl-u   # half page down/up
+Ctrl-f Ctrl-b   # full page down/up
 f<char>         # find character forward
-```
+F<char>         # find character backward
 
-## Yank/Paste
-
-Basic operations:
-
-```
 yy          # yank (copy) current line
 y           # yank visual selection
 yw          # yank word
 y$          # yank to end of line
-yap         # yank paragraph
+"+y         # copy to clipboard (visual mode)
+"+yy        # copy line to clipboard
 
 p           # paste after cursor/line
 P           # paste before cursor/line
-```
-
-System clipboard integration:
-
-```
-"+y         # copy to clipboard (visual mode)
-"+yy        # copy line to clipboard
 "+p         # paste from clipboard (after)
 "+P         # paste from clipboard (before)
+
+:w              # Save file
+:q              # Close file
+:qa             # Exit Neovim
 ```
 
 ## Key Mappings
 
-Basic keymaps:
+Basic possible keymaps:
 
 ```lua
 vim.g.mapleader = ' '
