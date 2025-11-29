@@ -19,10 +19,11 @@ sudo pacman -S neovim
 # Or download from https://github.com/neovim/neovim/releases
 ```
 
-Clone my config:
+Extract my config:
 
 ```bash
-git clone https://github.com/DanielTellier/nvim-config ~/.config/nvim
+mkdir -p ~/.config/nvim
+curl -L https://github.com/DanielTellier/dotfiles/archive/refs/heads/master.tar.gz | tar xz -C ~/.config/nvim --strip=2 dotfiles-master/nvim
 nvim  # First launch installs plugins
 ```
 
