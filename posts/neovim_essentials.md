@@ -497,7 +497,6 @@ Chat keybindings: `<CR>` submit, `q` close, `<C-x>` reset, `<C-y>` accept diff.
 
 ## Next Steps
 
-1. Install config and explore each feature
-2. Practice keymaps daily until muscle memory forms
-3. Add one plugin at a time, master it before adding more
-4. Customize keymaps to fit your workflow
+1. Practice keymaps daily until muscle memory forms
+2. Customize keymaps to fit your workflow
+3. Add or remove plugins to fit your workflow and possibly create your own
