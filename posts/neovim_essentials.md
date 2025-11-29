@@ -55,17 +55,17 @@ Ctrl-f Ctrl-b   # full page down/up
 f<char>         # find character forward
 F<char>         # find character backward
 
-yy          # yank (copy) current line
-y           # yank visual selection
-yw          # yank word
-y$          # yank to end of line
-"+y         # copy to clipboard (visual mode)
-"+yy        # copy line to clipboard
+yy              # yank (copy) current line
+y               # yank visual selection
+yw              # yank word
+y$              # yank to end of line
+"+y             # copy to clipboard (visual mode)
+"+yy            # copy line to clipboard
 
-p           # paste after cursor/line
-P           # paste before cursor/line
-"+p         # paste from clipboard (after)
-"+P         # paste from clipboard (before)
+p               # paste after cursor/line
+P               # paste before cursor/line
+"+p             # paste from clipboard (after)
+"+P             # paste from clipboard (before)
 
 :w              # Save file
 :q              # Close file
